@@ -32,12 +32,10 @@ async function main() {
   await Follow.create({ follower: user2, followee: user1 });
   await Follow.create({ follower: user3, followee: user1 });
 
-
-  const opts = { path: "followers",
-                 populate : {path: "follower"} };
+  const opts = { path: "followers", populate: { path: "follower" } };
   let doc = await User.findOne({ name: /Alice/ }).populate(opts);
-  console.log(doc)
-  console.log(doc.followers)
+  console.log(doc);
+  console.log(doc.followers);
   await deconnexion();
 }
 
